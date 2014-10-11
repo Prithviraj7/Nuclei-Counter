@@ -7,16 +7,16 @@ import mahotas as mmm
 from scipy import ndimage
 import pymorph as h
 #########################################################
-l = misc.imread('C:\Users\PRITHVIRAJ\Desktop\cell/h.jpg') 
+l = misc.imread('C:\Users\PRITHVIRAJ\Desktop\cell/h.jpg') #any location here
 pl.imshow(l)                                            
 l=mmm.colors.rgb2gray(l,dtype=np.uint8)                 
 pl.gray()
 thresh=mmm.thresholding.otsu(l)
 pl.imshow(l>thresh)
 new=(l>thresh)
-z=ndimage.gaussian_filter(l,8)
+z=ndimage.gaussian_filter(l,8)   # can change filter according to need
 pl.imshow(z)
-rmax=h.regmax(z)
+rmax=h.regmax(z) # regmax if objects are relatively darker
 pl.imshow(h.overlay(l, rmax))
 seeds,nr_nucle = ndimage.label(rmax)
 print nr_nucle
