@@ -7,9 +7,9 @@ import mahotas as mmm
 from scipy import ndimage
 import pymorph as h
 #########################################################
-l = misc.imread('C:\Users\PRITHVIRAJ\Desktop\cell/h.jpg')  #
-pl.imshow(l)                                            #
-l=mmm.colors.rgb2gray(l,dtype=np.uint8)                 #
+l = misc.imread('C:\Users\PRITHVIRAJ\Desktop\cell/h.jpg') 
+pl.imshow(l)                                            
+l=mmm.colors.rgb2gray(l,dtype=np.uint8)                 
 pl.gray()
 thresh=mmm.thresholding.otsu(l)
 pl.imshow(l>thresh)
